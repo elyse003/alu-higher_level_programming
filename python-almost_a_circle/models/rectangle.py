@@ -8,13 +8,13 @@ from models.base import Base
 class Rectangle(Base):
     """ Class Rectangle """
 
-    def _init_(self, width, height, x=0, y=0, id=None):
+    def __init__(self, width, height, x=0, y=0, id=None):
         """ Initializes instances """
         self.width = width
         self.height = height
         self.x = x
         self.y = y
-        super()._init_(id)
+        super().__init__(id)
 
     @property
     def width(self):
@@ -85,7 +85,7 @@ class Rectangle(Base):
 
         print(rectangle, end='')
 
-    def _str_(self):
+    def __str__(self):
         """ str special method """
         str_rectangle = "[Rectangle] "
         str_id = "({}) ".format(self.id)

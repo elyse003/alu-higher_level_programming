@@ -8,11 +8,11 @@ from models.rectangle import Rectangle
 class Square(Rectangle):
     """ Class Rectangle """
 
-    def _init_(self, size, x=0, y=0, id=None):
+    def __init__(self, size, x=0, y=0, id=None):
         """ Initializes instances """
-        super()._init_(size, size, x, y, id)
+        super().__init__(size, size, x, y, id)
 
-    def _str_(self):
+    def __str__(self):
         """ str special method """
         str_square = "[Square] "
         str_id = "({}) ".format(self.id)
@@ -32,7 +32,7 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-    def _str_(self):
+    def __str__(self):
         """ str special method """
         str_rectangle = "[Square] "
         str_id = "({}) ".format(self.id)

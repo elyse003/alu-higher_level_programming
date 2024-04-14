@@ -9,7 +9,7 @@ class Base:
     """ Class Base """
     __nb_objects = 0
 
-    def _init_(self, id=None):
+    def __init__(self, id=None):
         """ Initializes instances """
         if id is not None:
             self.id = id
@@ -27,7 +27,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """ Save object in a file """
-        filename = "{}.json".format(cls._name_)
+        filename = "{}.json".format(cls.__name__)
         list_dic = []
 
         if not list_objs:
@@ -51,7 +51,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """ Create an instance """
-        if cls._name_ == "Rectangle":
+        if cls.__name__ == "Rectangle":
             new = cls(10, 10)
         else:
             new = cls(10)
@@ -61,7 +61,7 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """ Returns a list of instances """
-        filename = "{}.json".format(cls._name_)
+        filename = "{}.json".format(cls.__name__)
 
         if os.path.exists(filename) is False:
             return []
@@ -80,9 +80,9 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """ Method that saves a CSV file """
-        filename = "{}.csv".format(cls._name_)
+        filename = "{}.csv".format(cls.__name__)
 
-        if cls._name_ == "Rectangle":
+        if cls.__name__ == "Rectangle":
             list_dic = [0, 0, 0, 0, 0]
             list_keys = ['id', 'width', 'height', 'x', 'y']
         else:
@@ -106,7 +106,7 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         """ Method that loads a CSV file """
-        filename = "{}.csv".format(cls._name_)
+        filename = "{}.csv".format(cls.__name__)
 
         if os.path.exists(filename) is False:
             return []
@@ -115,7 +115,7 @@ class Base:
             reader = csv.reader(readFile)
             csv_list = list(reader)
 
-        if cls._name_ == "Rectangle":
+        if cls.__name__ == "Rectangle":
             list_keys = ['id', 'width', 'height', 'x', 'y']
         else:
             list_keys = ['id', 'size', 'x', 'y']
